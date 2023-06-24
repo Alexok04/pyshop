@@ -1,0 +1,21 @@
+
+
+{% include 'home/base.html' %}
+
+{% block title %}<title>{{title}}</title>{% endblock  %}
+
+{% block content %}
+<h1>{{category.name}}</h1>
+<div class="container d-flex justify-content-center align-items-center">
+    {% for product in products %}
+    <div class="card" style="width: 18rem;">
+        <a href="{% url 'product' pk=product.pk%}"><img src="{{product.image.url}}" class="card-img-top" alt="..."></a>
+      <div class="card-body">
+          <a href="{% url 'product' pk=product.pk%}"><h5 class="card-title">{{product.name}}</h5></a>
+        <p class="card-text">{{product.description}}</p>
+
+      </div>
+    </div>`
+    {% endfor %}
+</div>
+{% endblock %}
